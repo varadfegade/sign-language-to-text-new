@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Language Gesture Detector</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- MediaPipe Hands -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤟 Sign Language Gesture Detector</h1>
+            <p>Show your hand gestures to see their meanings in real-time!</p>
+        </header>
+
+        <main>
+            <div class="video-container">
+                <video id="video" width="640" height="480" autoplay muted></video>
+                <canvas id="canvas" width="640" height="480"></canvas>
+            </div>
+
+            <div class="controls">
+                <button id="startBtn" class="btn btn-primary">Start Detection</button>
+                <button id="stopBtn" class="btn btn-secondary" disabled>Stop Detection</button>
+                <button id="captureBtn" class="btn btn-success">Capture Gesture</button>
+            </div>
+
+            <div class="results">
+                <div class="detected-gesture">
+                    <h2>Detected Gesture:</h2>
+                    <div id="gestureResult" class="gesture-display">
+                        <span class="gesture-text">Ready to detect...</span>
+                        <span class="confidence"></span>
+                    </div>
+                </div>
+
+                <div class="gesture-history">
+                    <h3>Recent Gestures:</h3>
+                    <ul id="historyList"></ul>
+                </div>
+            </div>
+
+            <div class="gesture-guide">
+                <h3>Supported Gestures:</h3>
+                <div class="gesture-grid">
+                    <div class="gesture-item">
+                        <div class="gesture-icon">👋</div>
+                        <div class="gesture-name">Hello</div>
+                        <div class="gesture-description">Open palm wave</div>
+                    </div>
+                    <div class="gesture-item">
+                        <div class="gesture-icon">🙏</div>
+                        <div class="gesture-name">Thank You</div>
+                        <div class="gesture-description">Palms together</div>
+                    </div>
+                    <div class="gesture-item">
+                        <div class="gesture-icon">👍</div>
+                        <div class="gesture-name">Yes/Good</div>
+                        <div class="gesture-description">Thumbs up</div>
+                    </div>
+                    <div class="gesture-item">
+                        <div class="gesture-icon">👎</div>
+                        <div class="gesture-name">No/Bad</div>
+                        <div class="gesture-description">Thumbs down</div>
+                    </div>
+                    <div class="gesture-item">
+                        <div class="gesture-icon">✌️</div>
+                        <div class="gesture-name">Peace</div>
+                        <div class="gesture-description">V-sign with fingers</div>
+                    </div>
+                    <div class="gesture-item">
+                        <div class="gesture-icon">❤️</div>
+                        <div class="gesture-name">I Love You</div>
+                        <div class="gesture-description">Thumb, index, and pinky up</div>
+                    </div>
+                    <div class="gesture-item">
+                        <div class="gesture-icon">✋</div>
+                        <div class="gesture-name">Stop</div>
+                        <div class="gesture-description">Open palm facing forward</div>
+                    </div>
+                    <div class="gesture-item">
+                        <div class="gesture-icon">👌</div>
+                        <div class="gesture-name">OK</div>
+                        <div class="gesture-description">Circle with thumb and index</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Built with MediaPipe Hands • Real-time gesture recognition</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

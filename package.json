@@ -1,0 +1,19 @@
+{
+  "name": "sign-language-detector",
+  "version": "1.0.0",
+  "description": "A web application that converts sign language gestures to text",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "python -m http.server 8000"
+  },
+  "dependencies": {},
+  "keywords": [
+    "sign-language",
+    "gesture-recognition",
+    "mediapipe",
+    "tensorflow"
+  ],
+  "author": "Sign Language Detector",
+  "license": "MIT"
+}
